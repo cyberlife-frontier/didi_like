@@ -1,0 +1,27 @@
+{
+    "pages": [
+      "pages/index/index",
+      "pages/logs/logs",
+      "pages/starting/starting",
+      "pages/destination/destination",
+      "pages/carts/carts",
+      "pages/wait/wait",
+      "pages/order/order",
+      "pages/login/login",
+      "pages/orderClosed/orderClosed",
+      "pages/cancel/cancel",
+      "pages/orderService/orderService",
+      "pages/evaluation/evaluation"
+    ],
+    "permission": {
+        "scope.userLocation": {
+          "desc": "你的位置信息将用于小程序位置接口的效果展示" 
+        }
+      },
+    "window": {
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#1b1b1f",
+      "navigationBarTitleText": "滴滴出行",
+      "navigationBarTextStyle": "white"
+    }
+  }

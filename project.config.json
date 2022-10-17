@@ -1,0 +1,93 @@
+{
+    "appid": "wxbfbb71f1d29f593c",
+    "compileType": "miniprogram",
+    "libVersion": "2.27.0",
+    "packOptions": {
+        "ignore": [],
+        "include": []
+    },
+    "setting": {
+        "coverView": true,
+        "es6": true,
+        "postcss": true,
+        "minified": true,
+        "enhance": true,
+        "showShadowRootInWxmlPanel": true,
+        "packNpmRelationList": [],
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        }
+    },
+    "condition": {
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "demo",
+                    "pathName": "pages/demo/demo",
+                    "query": ""
+                },
+                {
+                    "name": "map",
+                    "pathName": "pages/starting/starting",
+                    "query": ""
+                },
+                {
+                    "name": "carts",
+                    "pathName": "pages/carts/carts",
+                    "query": ""
+                },
+                {
+                    "name": "wait",
+                    "pathName": "pages/wait/wait",
+                    "query": ""
+                },
+                {
+                    "name": "order",
+                    "pathName": "pages/order/order",
+                    "query": ""
+                },
+                {
+                    "name": "login",
+                    "pathName": "pages/login/login",
+                    "query": ""
+                },
+                {
+                    "name": "orderClosed",
+                    "pathName": "pages/orderClosed/orderClosed",
+                    "query": ""
+                },
+                {
+                    "name": "cancel",
+                    "pathName": "pages/cancel/cancel",
+                    "query": ""
+                },
+                {
+                    "name": "orderService",
+                    "pathName": "pages/orderService/orderService",
+                    "query": ""
+                },
+                {
+                    "name": "destination",
+                    "pathName": "pages/destination/destination",
+                    "query": ""
+                },
+                {
+                    "name": "cost",
+                    "pathName": "pages/cost/cost",
+                    "query": ""
+                },
+                {
+                    "name": "evaluation",
+                    "pathName": "pages/evaluation/evaluation",
+                    "query": ""
+                }
+            ]
+        }
+    },
+    "editorSetting": {
+        "tabIndent": "insertSpaces",
+        "tabSize": 4
+    }
+}
