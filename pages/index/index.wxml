@@ -91,7 +91,7 @@
     </swiper>
     <view class="swiper">
     <swiper autoplay="{{true}}" interval="{{interval}}" circular="{{true}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <block wx:for="{{imgUrls}}" wx:key="index">
       <swiper-item>
     <image src="{{item}}" class="slide-image" />
       </swiper-item>
@@ -118,25 +118,25 @@
         </view>
         <view class="cost">
             <view class="cost-title">
-                <block wx:for="{{cost}}" wx:key="{{item.id}}">
+                <block wx:for="{{cost}}" wx:key="id">
                     <view class="cost-item">
                      <image style="width: 30rpx;height: 30rpx;  display: inline-block; " src="{{item.url}}"/>
                     {{item.name}}</view>
                 </block>       
             </view>
             <view class="cost-pic">
-                    <view class="carpooling  {{index==0?'on':''}}" data-index="0"bindtap="switchCart">
+                    <view class="carpooling  {{index==0?'on':''}}" data-index="0" data-play="{{play1}}" bindtap="switchCart">
                         <text class="carpooling-name ">拼车</text>
                         <image style="width: 150rpx;height: 70rpx;  display: inline-block; " src="../../assets/images/costCart.png"/>
                         <text class="money" style="font-size: 28rpx;padding-top: 15rpx;">预计<text style="font-size: 40rpx;">{{play1}}</text>元</text>
                     </view>
-                    <view class="carpooling  {{index==1?'on':''}}"data-index="1" bindtap="switchCart">
+                    <view class="carpooling  {{index==1?'on':''}}"data-index="1" data-play="{{play2}}" bindtap="switchCart">
                         <text class="carpooling-name">快车</text>
                         <image style="width: 150rpx;height: 70rpx;  display: inline-block; " src="../../assets/images/costCart.png"/>
                         <text class="money" style="font-size: 28rpx;padding-top: 15rpx;">预计<text style="font-size: 40rpx;">{{play2}}</text>元</text>
                     </view>
 
-                    <view class="carpooling  {{index==2?'on':''}}"data-index="2"bindtap="switchCart">
+                    <view class="carpooling  {{index==2?'on':''}}"data-index="2" data-play="{{play3}}" bindtap="switchCart">
                         <text class="carpooling-name">优享</text>
                         <image style="width: 150rpx;height: 70rpx;  display: inline-block; " src="../../assets/images/goodCart.png"/>
                         <text class="money" style="font-size: 28rpx;padding-top: 15rpx;">预计<text style="font-size: 40rpx;">{{play3}}</text>元</text>

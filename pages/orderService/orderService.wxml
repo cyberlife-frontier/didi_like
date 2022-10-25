@@ -1,5 +1,6 @@
 <loading hidden="{{hiddenLoading}}">数据加载中</loading>
 <view class="container">
+
     <map class="didiMap" id="didiMap" latitude="{{latitude}}" 
     longitude="{{longitude}}" 
     scale="{{scale}}" 
@@ -8,8 +9,20 @@
     bindmarkertap="bindmarkertap"  
     bindcontroltap="bindcontroltap" 
     show-location
-    >
+     style="position: absolute; left: 0rpx; top: -36rpx">
+
+    <cover-view class="mapCarticon" style="position: absolute; left:{{controls[0].position.left}}px;top:{{controls[0].position.top}}px">
+    <cover-image style="width:100rpx;height: 50rpx;" src="../../assets/images/mapCart.png"></cover-image>
+    </cover-view>
+    <cover-view class="locationicon" style="position: absolute; left:{{controls[1].position.left}}px;top:{{controls[1].position.top}}px">
+    <cover-image style="width:64rpx;height: 64rpx;" src="../../assets/images/location.png"></cover-image>
+    </cover-view>
+    <cover-view class="walkicon" style="position: absolute; left:{{controls[2].position.left}}px;top:{{controls[2].position.top}}px">
+    <cover-image style="width:64rpx;height: 64rpx;" src="../../assets/images/walk.png"></cover-image>
+    </cover-view>
+
     <cover-view class="total">
+
         <cover-view class="total-driver">
             <cover-view class="driver-info">
                 <cover-view class="driver-img">
@@ -18,10 +31,10 @@
                 <cover-view class="driver-detailed" >
                     <cover-view class="detailed-name">{{driver.name}}
                         <cover-image class="star" style="width: 35rpx;height: 35rpx;display: inline-block;" src="../../assets/images/star.png" ></cover-image>
-                        <cover-view class="orderTotal">{{driver.stars}}</cover-view>
+                        <cover-view class="orderTotal" >{{driver.stars}} {{driver.ordernum}}</cover-view>
                     </cover-view>
                    
-                    <cover-view class="detailed-Cartnumber">{{driver.Cartnumber}}</cover-view>
+                    <cover-view class="detailed-Cartnumber">{{driver.province}}{{driver.Cartnumber}}</cover-view>
 
                     <cover-view class="detailed-cart">{{driver.cart}}</cover-view>
                 </cover-view>
@@ -34,21 +47,25 @@
                             <cover-image style="width: 70rpx;height: 70rpx;" src="../../assets/images/phone.png"/>
                         </cover-view>
             </cover-view>
-          
         </cover-view>
+
         <cover-view class="total-looking">
             <cover-image class="looking-img" style="width: 30rpx;height: 30rpx;" src="../../assets/images/looking.png"  ></cover-image>
             <cover-view class="looking-desc">寻找拼友</cover-view>
         </cover-view>
+
         <cover-view class="total-prompt">请在2分1秒内走到上车点
         </cover-view>
 
-
     </cover-view>
+
+    
+
     <cover-view class="ft">
         <cover-view class="ft-cancel"bindtap="toCancel">取消订单</cover-view>
         <cover-view class="ft-help" bindtap="toEvaluation">结束行程</cover-view>
         <cover-view class="ft-app" bindtap="toApp">下载滴滴APP</cover-view>
     </cover-view>
+
 </map>
 </view>

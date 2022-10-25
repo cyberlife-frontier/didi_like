@@ -18,7 +18,7 @@ Page({
     wx.getStorage({
       key:'driver',
       success: (res)=>{
-          console.log(res.data)
+          //console.log(res.data)
           this.setData({
             driver:res.data
           })
@@ -35,6 +35,7 @@ Page({
       title: '提交中',
     })
     setTimeout(()=>{
+      wx.hideLoading()
       wx.redirectTo({
         url: '/pages/index/index',
       })

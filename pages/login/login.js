@@ -32,6 +32,7 @@ Page({
         nextBtnBc: '#4a4c5b'
       })
     } else {
+        
       _self.setData({
         nextBtnDisabled: true,
         nextBtnBc: '#bcbcbc'

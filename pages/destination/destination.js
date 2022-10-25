@@ -9,23 +9,24 @@ const app = getApp();
 Page({
   data: {
     value: '',
-    address: []
+    address: [],
+    city: ['全国','全国',''],
+    customItem:'全国'
   },
 onLoad(){
   this.requestHistory();
 },
 requestHistory(e){
-  util.request({
+  wx.request({
       url: 'https://mock.presstime.cn/mock/6346b7df03bda8005d33525b/comment/getname',
-      mock: false,
-    }).then((res)=>{
- 
+      
+    success:((res)=>{
       const entity = res.data.entity;
-  
       this.setData({
         entity
       })
     })
+  })
   },
   toIndex(e){
     const destination = e.currentTarget.dataset.destination;
@@ -43,13 +44,13 @@ requestHistory(e){
     })
   },
 
-  switchCity(e){
-    qqmapsdk.getCityList({
-      success: function(res){
-        console.log(res)
-      }
+  bindRegionChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+        city: e.detail.value
     })
   },
+
   searchInputend(e){
    
     var that = this;
@@ -58,9 +59,10 @@ requestHistory(e){
    
     qqmapsdk.getSuggestion({
       keyword: value,
-      region: '南昌',
+      region: this.data.city[1],
       success: function(res){
         let data = res.data
+        console.log(data);
       that.setData({
         address: data,
         value

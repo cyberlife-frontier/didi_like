@@ -3,7 +3,7 @@
 <view class="container">
    <view class="location">
     <view class="location-city">
-      <text>南昌</text>
+      <text></text>
     </view>
     <input type="text" class="location-input"placeholder="你在哪儿上车"placeholder-style="color:#cccccc"/>
     <navigator url="/pages/index/index" redirect ><view class="location-cancel">取消</view></navigator>
@@ -19,9 +19,18 @@
         controls="{{controls}}" 
     bindmarkertap="bindmarkertap"  
     bindcontroltap="controltap" 
-    show-location>
+    show-location style="position: relative; left: 0rpx; top: -88rpx">
+
+    <cover-view class="markericon" style="position: absolute; left:{{controls[0].position.left}}px;top:{{controls[0].position.top}}px">
+    <cover-image style="width:64rpx;height: 79rpx;" src="../../assets/images/marker.png"></cover-image>
+    </cover-view>
+
+    <cover-view class="locationicon" style="position: absolute; left:20px;top:{{controls[1].position.top}}px">
+    <cover-image style="width:64rpx;height: 64rpx;" src="../../assets/images/location.png"></cover-image>
+    </cover-view>
+  
     <cover-view class="address">
-      <cover-image style="width: 80rpx;height: 80rpx;" src="../../assets/images/address.png"></cover-image>
+      <cover-image style="width: 61rpx;height: 61rpx;" src="../../assets/images/address.png"></cover-image>
       
       <cover-view class="address-desc">
         <cover-view class="blur">{{bluraddress}}</cover-view>

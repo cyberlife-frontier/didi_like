@@ -1,7 +1,11 @@
 <view class="container">
     <view class="location">
-        <view class="location-city" bindtap="switchCity">
-            <text>南昌</text>
+        <view class="location-city" >
+            <picker mode="region" bindchange="bindRegionChange" value="{{city}}"  >
+            <view class="picker">
+            {{city[1]}}
+            </view>
+  </picker>
         </view>
         <input type="text" class="location-input" value="{{value}}"  bindinput="searchInputend"placeholder="你在哪儿上车"placeholder-style="color:#cccccc"/>
         <navigator url="/pages/index/index" redirect ><view class="location-cancel">取消</view></navigator>
@@ -9,7 +13,7 @@
     <view class="addressList">
     <scroll-view  scroll-with-animation="{{true}}" >
     
-        <view wx:if="{{!value==''}}" class="destination" wx:for="{{address}}" data-destination="{{item.title}}" data-end="{{item.address}}" bindtap="toIndex" wx:key="{{item.id}}">
+        <view wx:if="{{!value==''}}" class="destination" wx:for="{{address}}" data-destination="{{item.title}}" data-end="{{item.address}}" bindtap="toIndex" wx:key="id">
                <view class="destination-content">
                    <view class="content-image">
                    <image src="../../assets/images/clock.png"></image>
@@ -20,7 +24,7 @@
                    </view>
                </view> 
         </view>
-          <view wx:if="{{value==''}}" class="destination" wx:for="{{ entity}}" data-destination="{{item.title}}" data-end="{{item.address}}" bindtap="toIndex" wx:key="{{item.id}}">
+          <view wx:if="{{value==''}}" class="destination" wx:for="{{entity}}" data-destination="{{item.title}}" data-end="{{item.address}}" bindtap="toIndex" wx:key="id">
                <view class="destination-content">
                    <view class="content-image">
                    <image src="../../assets/images/clock.png"></image>

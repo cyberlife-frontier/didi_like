@@ -11,7 +11,17 @@ Page({
     longitude: 0,
     address: '',
     bluraddress: '',
-   
+   controls:[
+       {id: "",
+        iconPath: "",
+        position: {
+          left: "",
+          top: "",
+          width: "",
+          height: ""
+          },
+        clickable: Boolean}
+   ]
    
   },
   onLoad: function (options) {
@@ -31,7 +41,7 @@ Page({
         longitude: res.longitude,
     },
       success: function (res) {
-      
+        
         app.globalData.location=location
         that.setData({
           address: res.result.address,
@@ -46,30 +56,32 @@ Page({
     // this.moveToLocation();
 
     wx.getSystemInfo({
-      success: (res)=>{
+      success: (res)=>{ 
+      //console.log(this.data.controls[0].position);
         this.setData({
-          controls:[{
-            id: 1,
-            iconPath: '../../assets/images/marker.png',
-            position: {
-              left: res.windowWidth/2 - 11,
-              top: res.windowHeight/2 - 45,
-              width: 22,
-              height: 45
-              },
-            clickable: true
-          },{
-            id: 2,
-            iconPath: '../../assets/images/location.png',
-            position: {
-              left: 20, // 单位px
-              top: res.windowHeight -200, 
-              width: 40, // 控件宽度/px
-              height: 40,
-              },
-            clickable: true
-          }],
+            controls:[{
+                id: 1,
+                iconPath: "../../assets/images/marker.png",
+                position: {
+                  left: res.screenWidth/2 - 15,
+                  top: res.screenHeight/2 - 45,
+                  width: 22,
+                  height: 45
+                  },
+                clickable: true
+              },{
+                id: 2,
+                iconPath: "../../assets/images/location.png",
+                position: {
+                  left: 20, // 单位px
+                  top: res.screenHeight/2 , 
+                  width: 40, // 控件宽度/px
+                  height: 40,
+                  },
+                clickable: true
+              }],
         })
+
       }
     })
   },

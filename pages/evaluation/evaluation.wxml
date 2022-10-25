@@ -8,10 +8,10 @@
                 <view class="driver-detailed" >
                     <view class="detailed-name">{{driver.name}}
                         <image class="star" style="width: 35rpx;height: 35rpx;display: inline-block;" src="../../assets/images/star.png" ></image>
-                        <view class="orderTotal">{{driver.stars}}</view>
+                        <view class="orderTotal" >{{driver.stars}} {{driver.ordernum}}</view>
                     </view>
                    
-                    <view class="detailed-Cartnumber">{{driver.Cartnumber}}</view>
+                    <view class="detailed-Cartnumber">{{driver.province}}{{driver.Cartnumber}}</view>
 
                     <view class="detailed-cart">{{driver.cart}}</view>
                 </view>
@@ -36,7 +36,7 @@
         <view class="evaluation">
             <view class="evaluation-name">匿名评价司机</view>
                 <view class="evaluation-stars" bindtap="myStarChoose">
-                    <block wx:for="{{starMap}}"wx:key="{{index}}">
+                    <block wx:for="{{starMap}}"wx:key="index">
                         <text wx:if="{{star>=index+1}}"  class="stars-solid" data-star="{{index+1}}">★</text>
                         <text wx:if="{{star<index+1}}"  class="stars-empty" data-star="{{index+1}}">☆</text>
                     </block>

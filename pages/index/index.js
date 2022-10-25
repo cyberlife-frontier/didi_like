@@ -17,7 +17,7 @@ Page({
         color:"#cccccc",
         callCart: true,
         destination: '',
-        bluraddress : '',
+        address:'',
         index: '',
     },
     onLoad: function(options) {
@@ -25,20 +25,23 @@ Page({
        this.requestWaitingtime();
     },
     requestCart(e){
-        util.request({
+        wx.request({
             url: 'https://mock.presstime.cn/mock/6346b7df03bda8005d33525b/comment/getname',
-            mock: false,
-          }).then((res)=>{
-       
+             
+          success:((res)=>{
             const navData = res.data.navData;
             const imgUrls = res.data.imgUrls;
             const cost = res.data.cost
+            //console.log(navData);
+           //console.log(imgUrls);
+            
             this.setData({
                 navData,
                 imgUrls,
                 cost
             })
           })
+        })
     },
     onShow(){
         this.setData({
@@ -50,14 +53,11 @@ Page({
     },
     requestWaitingtime(){
         setTimeout(() => {
-            util.request({
+            wx.request({
                 url: 'https://mock.presstime.cn/mock/6346b7df03bda8005d33525b/comment/getname',
-                mock: false,
-                data: {
-                }
-              }).then((res)=>{
+              success:((res)=>{
               const arr = res.data.waitingTimes;
-            //   console.log(arr)
+                //console.log(arr)
                 var index = Math.floor((Math.random()*arr.length));
                 // console.log(arr[index])
                 this.setData({
@@ -65,12 +65,20 @@ Page({
                 waitingTimes: arr[index]
                 })
               })
+            })
         }, 1000);
     },
    
     toCast(e){
       const destination =this.data.destination
-      if(destination==''){
+      const address =this.data.address
+      if(address=='获取当前位置'){
+        wx.showToast({
+          title: '未获取位置信息',
+          duration:1000
+        })
+      }
+      else if(destination==''){
         wx.showToast({
             title: '目的地不能为空',
             icon: 'fail',
@@ -79,9 +87,13 @@ Page({
           })
       }else{
 
-        let {endLatitude,endLongitude} = app.globalData
+        let {endLatitude,endLongitude,strLatitude,strLongitude} = app.globalData
         qqmapsdk.calculateDistance({
             mode: 'driving',
+            from: {
+                latitude: strLatitude,
+                longitude: strLongitude
+                },
             to:[ {
               latitude: endLatitude,
               longitude:endLongitude
@@ -94,10 +106,11 @@ Page({
             var play1 = num1.toFixed(1)
             var play2 = num2.toFixed(1)
             var play3 = num3.toFixed(1)
+            app.globalData.play=play1;//默认选择第一种出行方式
             this.setData({
-                play1:play1,
-                play2:play2,
-                play3:play3,
+                    play1:play1,
+                    play2:play2,
+                    play3:play3,
             })
           },
          
@@ -110,14 +123,16 @@ Page({
         
        
     },
+    
   toWait(e){
    
     wx.reLaunch({
         url:  "/pages/wait/wait",
     }),
-    wx.setTopBarText({
-        text: '等待应答'
-        })
+    wx.showToast({
+      title: '正在等待应答',
+      duration:2000
+    })
   },
     switchNav(event){
      
@@ -139,6 +154,8 @@ Page({
     },
     switchCart(e){
         const id = e.currentTarget.dataset.index;
+        app.globalData.play =e.currentTarget.dataset.play;
+        //console.log(play);
         this.setData({
           index:id,
           
@@ -156,7 +173,10 @@ Page({
     showUser(){
     // 如果全局未存手机号进入登录页
     if(app.globalData.userInfo && app.globalData.userInfo.phone){
-        return
+       wx.showToast({
+         title: '用户'+app.globalData.userInfo.phone,
+         duration:2000
+       })
     }else{
         wx.navigateTo({
         url:  "/pages/login/login",

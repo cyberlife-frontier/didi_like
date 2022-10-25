@@ -24,7 +24,7 @@
   }
   .driver-info{
       position: absolute;
-      width: 450rpx;
+      width: 468rpx;
       float: left;
       display: flex;
       align-items: center;
@@ -42,10 +42,11 @@
   .detailed-name .orderTotal{
       position: absolute;
       display: inline-block;
+      width: 140rpx;
+      height: 40rpx;
       font-size: 26rpx;
       opacity: .6;
-      margin-left: 5rpx;
-      margin-top: 5rpx;
+      text-align: justify;
   }
   .detailed-Cartnumber{
       margin-top: 17rpx;
