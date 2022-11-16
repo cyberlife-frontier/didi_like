@@ -10,7 +10,7 @@ Page({
   },
   requestCart(e){
     wx.request({
-        url: 'https://mock.presstime.cn/mock/6346b7df03bda8005d33525b/comment/getname',
+        url: 'https://www.fastmock.site/mock/6912acf29b6d3bc12a9658e4c011e118/comment/getinfo',
         
       success:((res)=>{
         const navData = res.data.navData;

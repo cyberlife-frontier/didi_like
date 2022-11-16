@@ -5,9 +5,9 @@
             <view class="picker">
             {{city[1]}}
             </view>
-  </picker>
+        </picker>
         </view>
-        <input type="text" class="location-input" value="{{value}}"  bindinput="searchInputend"placeholder="你在哪儿上车"placeholder-style="color:#cccccc"/>
+        <input type="text" class="location-input" value="{{value}}"  bindinput="searchInputend"placeholder="你要去哪里"placeholder-style="color:#cccccc"/>
         <navigator url="/pages/index/index" redirect ><view class="location-cancel">取消</view></navigator>
     </view>
     <view class="addressList">

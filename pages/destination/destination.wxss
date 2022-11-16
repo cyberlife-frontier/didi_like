@@ -25,10 +25,11 @@ page,.container{
   .location-city::after{
     border-left: 4px solid transparent;  
     border-right: 4px solid transparent;  
-    border-top: 4px solid #a4a4a4;  
+    border-top: 4px solid #b4b4b4;  
     content: "";  
-    position: absolute;      
-    width: 0; 
+    position: absolute;   
+    left: 135rpx;   
+    width: 0rpx; 
     top: 40rpx;
     
   }

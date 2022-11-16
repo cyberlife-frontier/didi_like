@@ -11,9 +11,9 @@
       margin-right: 20rpx;
       margin-top: 20rpx;
      
-      box-shadow:3px 5px 10px #e0e0e0; 
+      box-shadow:3px 5px 10px #949494; 
       box-sizing: border-box;
-      border: 1px solid #f5f5f5;
+      border: 1px solid #686868;
   }
   .total-driver{
       width: 100%;
@@ -66,9 +66,10 @@
   .driver-message{
       float: right;
       display: flex;
-      height: 190rpx;
+      height: 100rpx;
       align-items: center;
-      margin-right: 32rpx;
+      margin-right: 40rpx;
+      margin-top: 50rpx;
       text-align: center;
   }
   .driver-message .mas{

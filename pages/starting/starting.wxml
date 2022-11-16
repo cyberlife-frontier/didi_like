@@ -1,14 +1,5 @@
-
-
 <view class="container">
-   <view class="location">
-    <view class="location-city">
-      <text></text>
-    </view>
-    <input type="text" class="location-input"placeholder="你在哪儿上车"placeholder-style="color:#cccccc"/>
-    <navigator url="/pages/index/index" redirect ><view class="location-cancel">取消</view></navigator>
-  </view>
-
+  
    <map class="didiMap" id="didiMap"
    latitude="{{latitude}}"
     longitude="{{longitude}}"
@@ -20,6 +11,14 @@
     bindmarkertap="bindmarkertap"  
     bindcontroltap="controltap" 
     show-location style="position: relative; left: 0rpx; top: -88rpx">
+
+    <view class="location">
+    <view class="location-city">
+      <text>全国</text>
+    </view>
+    <input type="text" class="location-input"placeholder="你在哪儿上车"placeholder-style="color:#cccccc"/>
+    <navigator url="/pages/index/index" redirect ><view class="location-cancel">取消</view></navigator>
+    </view>
 
     <cover-view class="markericon" style="position: absolute; left:{{controls[0].position.left}}px;top:{{controls[0].position.top}}px">
     <cover-image style="width:64rpx;height: 79rpx;" src="../../assets/images/marker.png"></cover-image>

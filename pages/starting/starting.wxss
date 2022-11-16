@@ -4,7 +4,7 @@
     height: 100vh; 
   }
   .location{
-   
+    position: fixed ;
     width: 100%;
     height: 88rpx;
     z-index: 999;
@@ -25,11 +25,12 @@
   .location-city::after{
     border-left: 4px solid transparent;  
     border-right: 4px solid transparent;  
-    border-top: 4px solid #a4a4a4;  
+    border-top: 4px solid #b4b4b4;  
     content: "";  
-    position: relative;      
-    width: 0; 
-    top: 25rpx;
+    position: absolute;   
+    left: 135rpx;   
+    width: 0rpx; 
+    top: 40rpx;
     
   }
   .location-input{

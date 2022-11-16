@@ -24,8 +24,8 @@
       
     "window": {
       "backgroundTextStyle": "light",
-      "navigationBarBackgroundColor": "#1b1b1f",
-      "navigationBarTitleText": "滴滴出行",
+      "navigationBarBackgroundColor": "#ED6E6D",
+      "navigationBarTitleText": "DiDi Like",
       "navigationBarTextStyle": "white"
     }
   }

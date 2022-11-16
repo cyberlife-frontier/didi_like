@@ -11,8 +11,64 @@
     show-location
      style="position: absolute; left: 0rpx; top: -36rpx">
 
+    <repeat wx:if="{{convert==-1}}">
+    <!-- convert为-1时，显示此视图total的内容 -->
+    <view class="route">
+
+     <scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{false}}">
+        <!-- 交通工具的选择 -->
+        <block wx:for="{{navData}}" wx:for-index="id"  wx:for-item="navItem" wx:key="index">
+            <view class="nav-item {{currentTab == id ?'active':''}}"  
+            data-name="{{navItem.name}}" data-current="{{id}}" data-modes="{{navItem.modes}}"
+            bindtap="switchNav">{{navItem.name}}</view>
+        </block>
+
+    </scroll-view>
+
+    <view class="convert" bindtap="convertinfo">
+        <image style="height: 55rpx;width: 55rpx;" src="../../assets/images/convert0.png"></image>
+    </view>
+    <!-- <view class="policyinfo"  wx:for="{{policy_driver}}" wx:key="index">{{item.name}}</view> -->
+
+    <swiper class="tab-box"  current="{{currentTab}}"  duration="0" bindchange="switchTab">
+        <!-- swiper容器实现不同工具不同policies -->
+
+        <swiper-item class="policy-unit">
+        <!-- driving模式的policies -->
+        <view class="policyinfo" hover-class="tap-policy"
+         wx:for="{{policy_driver}}" wx:key="index" 
+         bindtap="choosepolicies" 
+         data-policies="{{item.policies}}">{{item.name}}
+         </view>
+         </swiper-item>
+
+        <swiper-item>
+        <view wx:for="{{tra_route}}" wx:key="index" 
+        style="display: inline-block;width: 140rpx; text-align: center;"
+        hover-class="tap-policy" bindtap="choosepolicies2" data-way="{{item.tra_ways}}">{{item.name}}
+        </view>
+        <view class="policyinfo2" hover-class="tap-policy"
+        wx:for="{{policy_transit}}" wx:key="index"
+        bindtap="choosepolicies2" data-policy2="{{item.policies}}">{{item.name}}
+        </view>
+        </swiper-item>
+
+        <swiper-item>
+        <view hover-class="tap-policy" style="text-align: center;" > 我 想带你骑单车 我 想和你看棒球
+        </view>
+        </swiper-item>
+
+        <swiper-item>
+        <view hover-class="tap-policy" style="text-align: center;">随风奔跑自由是方向 追逐雷和闪电的力量
+        </view>
+        </swiper-item>
+    </swiper>
+    </view>
+
+    </repeat>
+
     <cover-view class="mapCarticon" style="position: absolute; left:{{controls[0].position.left}}px;top:{{controls[0].position.top}}px">
-    <cover-image style="width:100rpx;height: 50rpx;" src="../../assets/images/mapCart.png"></cover-image>
+    <cover-image style="width:100rpx;height: auto;" src="{{iconPath}}"></cover-image>
     </cover-view>
     <cover-view class="locationicon" style="position: absolute; left:{{controls[1].position.left}}px;top:{{controls[1].position.top}}px">
     <cover-image style="width:64rpx;height: 64rpx;" src="../../assets/images/location.png"></cover-image>
@@ -21,6 +77,8 @@
     <cover-image style="width:64rpx;height: 64rpx;" src="../../assets/images/walk.png"></cover-image>
     </cover-view>
 
+    <repeat wx:if="{{convert==1}}">
+    <!-- convert为1时显示此视图total类的内容 -->
     <cover-view class="total">
 
         <cover-view class="total-driver">
@@ -47,6 +105,11 @@
                             <cover-image style="width: 70rpx;height: 70rpx;" src="../../assets/images/phone.png"/>
                         </cover-view>
             </cover-view>
+
+            <cover-view class="convert" bindtap="convertinfo">
+                <cover-image style="height: 55rpx;width: 55rpx;" src="../../assets/images/convert0.png"></cover-image>
+            </cover-view>
+
         </cover-view>
 
         <cover-view class="total-looking">
@@ -57,14 +120,17 @@
         <cover-view class="total-prompt">请在2分1秒内走到上车点
         </cover-view>
 
-    </cover-view>
-
-    
+    </cover-view>  
+    <!-- total的end -->
+    </repeat>
 
     <cover-view class="ft">
-        <cover-view class="ft-cancel"bindtap="toCancel">取消订单</cover-view>
-        <cover-view class="ft-help" bindtap="toEvaluation">结束行程</cover-view>
-        <cover-view class="ft-app" bindtap="toApp">下载滴滴APP</cover-view>
+        <cover-view class="ft-cancel"
+        bindtap="toCancel">取消订单</cover-view>
+        <cover-view class="ft-help" 
+        bindtap="toEvaluation">结束行程</cover-view>
+        <cover-view class="ft-app" 
+        bindtap="toApp">下载滴滴APP</cover-view>
     </cover-view>
 
 </map>
